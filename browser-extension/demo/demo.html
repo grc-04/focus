@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Content Blocker - Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+            background: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .demo-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .demo-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .status-working { background: #28a745; }
+        .status-pending { background: #ffc107; }
+        .status-error { background: #dc3545; }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .installation-steps {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .installation-steps h3 {
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+
+        .step {
+            margin: 15px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(255,255,255,0.2);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        .test-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5a67d8;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #28a745;
+            margin: 20px 0;
+        }
+
+        .file-structure {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚫 Social Media Content Blocker</h1>
+            <p>Your browser extension is ready! Here's how to install and use it.</p>
+        </div>
+
+        <div class="installation-steps">
+            <h3>🔧 Installation Instructions</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                Open Chrome and go to <code>chrome://extensions/</code>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                Enable "Developer mode" toggle in the top-right corner
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                Click "Load unpacked" and select the browser-extension folder
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                Pin the extension by clicking the puzzle piece icon in Chrome's toolbar
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                Visit X (Twitter) or LinkedIn to test the blocker!
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">
+                <span class="status-indicator status-working"></span>
+                ✅ Core Features Implemented
+            </div>
+            <ul class="feature-list">
+                <li>
+                    <span class="feature-icon">🎥</span>
+                    <strong>Video/Reel Blocking:</strong> Automatically hides video content from feeds
+                </li>
+                <li>
+                    <span class="feature-icon">🔍</span>
+                    <strong>Keyword Filtering:</strong> Block posts containing specific words or phrases
+                </li>
+                <li>
+                    <span class="feature-icon">👤</span>
+                    <strong>User Blocking:</strong> Manually block specific users by username
+                </li>
+                <li>
+                    <span class="feature-icon">📊</span>
+                    <strong>Real-time Statistics:</strong> Track how much content has been blocked
+                </li>
+                <li>
+                    <span class="feature-icon">⚙️</span>
+                    <strong>Easy Management:</strong> Simple popup and advanced settings page
+                </li>
+                <li>
+                    <span class="feature-icon">🔄</span>
+                    <strong>Dynamic Monitoring:</strong> Works with infinite scroll and dynamic content
+                </li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">
+                <span class="status-indicator status-pending"></span>
+                🚧 Advanced Features (Next Phase)
+            </div>
+            <ul class="feature-list">
+                <li>
+                    <span class="feature-icon">👑</span>
+                    <strong>Influencer Blocking:</strong> Block users with >50K followers (requires follower scraping)
+                </li>
+                <li>
+                    <span class="feature-icon">🤖</span>
+                    <strong>AI Content Analysis:</strong> Smart detection of sponsored/promotional content
+                </li>
+                <li>
+                    <span class="feature-icon">📱</span>
+                    <strong>More Platforms:</strong> Instagram, TikTok, Facebook support
+                </li>
+                <li>
+                    <span class="feature-icon">⏰</span>
+                    <strong>Scheduled Blocking:</strong> Time-based rules (e.g., block entertainment during work hours)
+                </li>
+            </ul>
+        </div>
+
+        <div class="success">
+            <strong>🎉 Ready to Test!</strong> The extension is fully functional for keyword and video blocking on X (Twitter) and LinkedIn. The core architecture is in place to add more advanced features.
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">
+                <span class="status-indicator status-working"></span>
+                📁 Extension Structure
+            </div>
+            <div class="file-structure">
+browser-extension/
+├── manifest.json              # Extension configuration
+├── background.js              # Background service worker
+├── content-scripts/
+│   ├── twitter.js            # X/Twitter content blocking
+│   └── linkedin.js           # LinkedIn content blocking
+├── popup/
+│   ├── popup.html            # Quick access popup UI
+│   └── popup.js              # Popup functionality
+├── options/
+│   ├── options.html          # Advanced settings page
+│   └── options.js            # Settings management
+├── styles/
+│   └── content.css           # Styling for blocked content
+├── icons/                    # Extension icons
+└── README.md                 # Detailed documentation
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">
+                <span class="status-indicator status-working"></span>
+                🧪 Testing Instructions
+            </div>
+            <p><strong>After installing the extension:</strong></p>
+            <ol>
+                <li><strong>Configure Settings:</strong> Click the extension icon and enable blocking features</li>
+                <li><strong>Add Keywords:</strong> Try adding "sponsored", "crypto", or "NFT" as blocked keywords</li>
+                <li><strong>Visit X/Twitter:</strong> Go to twitter.com or x.com and scroll through your feed</li>
+                <li><strong>Visit LinkedIn:</strong> Go to linkedin.com and check your feed</li>
+                <li><strong>Check Statistics:</strong> See the counter in the popup and blocked content overlays</li>
+                <li><strong>Advanced Settings:</strong> Click "Advanced Settings" for comprehensive management</li>
+            </ol>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Note:</strong> Follower count detection is currently simulated with random numbers for testing purposes. A production version would implement proper follower count scraping or API integration.
+        </div>
+
+        <div class="test-buttons">
+            <button class="btn btn-primary" onclick="window.open('https://twitter.com', '_blank')">
+                Test on X (Twitter)
+            </button>
+            <button class="btn btn-primary" onclick="window.open('https://linkedin.com', '_blank')">
+                Test on LinkedIn
+            </button>
+            <button class="btn btn-secondary" onclick="window.open('chrome://extensions/', '_blank')">
+                Chrome Extensions
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Simple demo functionality
+        console.log('Social Media Content Blocker Demo loaded');
+        
+        // Check if we're in a Chrome extension context
+        if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.id) {
+            console.log('Extension detected:', chrome.runtime.id);
+        } else {
+            console.log('Open this page after installing the extension to see it in action');
+        }
+    </script>
+</body>
+</html>
